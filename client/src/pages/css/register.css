@@ -1,0 +1,130 @@
+input {
+    font-size:  16px; 
+    padding:  20px; 
+    height:  56px; 
+    border:  none; 
+    border-bottom:  solid 1px rgba(0,0,0,.1); 
+    background: #fee3f8;
+    width:  280px; 
+    box-sizing:  border-box; 
+    transition:  all .3s linear; 
+    color:  #000; 
+    font-weight:  400;
+    border-radius: 50px;
+}
+
+input:hover {
+    background-color: #dbe8ff;
+}
+
+textarea:hover {
+    background-color: #dbe8ff;
+}
+
+label {
+    color: white;
+    float: left;
+}
+
+.big {
+    font-size:  16px; 
+    padding:  20px; 
+    border:  none; 
+    border-bottom:  solid 1px rgba(0,0,0,.1); 
+    background:  #fff;  
+    box-sizing:  border-box; 
+    transition:  all .3s linear; 
+    color:  #000; 
+    font-weight:  400;
+    border-radius: 50px;
+}
+
+.register-page {
+    background-image: url('../register.jpg');
+    background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 40px;
+
+  /* display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center; */
+
+}
+
+.register-form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 50px;
+    padding: 40px;
+    background-color: rgba(0, 21, 58, 0.4);
+    border-radius: 50px;
+}
+
+.register-form-1, .register-form-2 {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
+
+.register-part-1 {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between; 
+    width: 50%;
+}
+
+.register-part-2 {
+    display: flex;
+    flex-flow: column;
+    /* justify-content: center; */
+}
+
+.register-title {
+    background-color:  #fbc2eb;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-btn {
+    margin-top: 50px;
+  background-color:  #dbe8ff;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 22px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 200px;
+  touch-action: manipulation;
+}
+
+.register-btn:hover {
+  background-color:  #fbc2eb;
+}
+
+.register-btn:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.login-link {
+    color: white;
+}
+
+.link {
+    text-decoration: none;
+    color:  #fbc2eb;
+    font-weight: bold;
+}

@@ -1,0 +1,10 @@
+.category-wrapper {
+    display: grid;
+    column-gap: 30px;
+    row-gap: 30px;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    padding: 60px;
+    align-items: center;
+    background-color:   rgb(11, 11, 90);
+}

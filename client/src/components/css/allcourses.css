@@ -1,0 +1,37 @@
+.all-courses-slider {
+    background-color: white;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.all-course-text {
+    color: black;
+    font-size: 35px;
+    /* margin-left: 20px; */
+    padding: 20px;
+    margin-bottom: 0px;
+}
+
+.all-course-text:hover {
+    cursor: pointer;
+}
+
+.courses-btn {
+    width: 50px;
+    height: 50px;
+    color:  rgb(11, 11, 90);
+}
+
+.all-courses-link {
+    display: flex;
+    flex-flow: row;
+    text-align: center;
+    align-items: center;
+}
+
+.all-courses-component {
+    display: flex;
+    flex-flow:column;
+    justify-content: center;
+    margin-left: 30px;
+}
