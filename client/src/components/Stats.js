@@ -10,12 +10,12 @@ function Stats() {
             <div className='stats-card'>
                 <img className='stats-img' src='./images/women4.jpg'></img>
                 <h1>50+</h1>
-                <h3>Events Conducted</h3>
+                <h3>Programs Posted</h3>
             </div>
             <div className='stats-card'>
                 <img className='stats-img' src='./images/women3.jpg'></img>
                 <h1>30+</h1>
-                <h3>Successful Mentorships</h3>
+                <h3>Opportunities Offered</h3>
             </div>
             <div className='stats-card'>
                 <img className='stats-img' src='./images/women2.jpg'></img>

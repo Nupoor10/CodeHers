@@ -1,9 +1,24 @@
 import React, { useContext} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext'
+import { EnrolledCoursesContext } from '../context/EnrolledCoursesContext';
 import './css/navbar.css'
 import { FaCode } from "react-icons/fa";
 
 function Navbar() {
+    const { user, setUser } = useContext(UserContext);
+    const { enrolledCourses, setEnrolledCourses } = useContext(EnrolledCoursesContext);
+    const navigate = useNavigate()
+
+    function handleLogout()  {
+        console.log("Logged Out");
+        localStorage.removeItem('userInfo')
+        localStorage.removeItem('userCourses')
+        setUser(null)
+        setEnrolledCourses([])
+        alert("Logged Out")
+        navigate("/login")
+      }
 
   return (
     <div className='navbar-wrapper'>
@@ -15,14 +30,29 @@ function Navbar() {
                 <Link to="/" className='nav-link'>Home</Link>
             </div>
             <div>
-                <Link to="/about" className='nav-link'>About</Link>
+                <Link to="/category" className='nav-link'>Categories</Link>
             </div>
             <div>
-                <Link to="/login" className='nav-link'>Login</Link>
+                <Link to="/impact" className='nav-link'>What we do</Link>
             </div>
             <div>
-                <Link to="/register" className='nav-link'>Register</Link>
+                <Link to="/courses" className='nav-link'>Browse Courses</Link>
             </div>
+            { user && (
+                <div>
+                    <Link to="/mycourses" className='nav-link'>My Courses</Link>
+                </div>)}
+           { user && (
+                <div>
+                    <Link onClick={handleLogout} className='nav-link'>LOGOUT</Link>
+                    {/* <button type='button' className="logout-btn" onClick={handleLogout}>LOGOUT</button>     */}
+                </div>)}
+
+            {!user && (
+                <div>
+                    <Link to="/login" className='nav-link'>GET STARTED</Link>
+                </div>
+            )}
         </div>
     </div>
   )

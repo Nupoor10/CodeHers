@@ -1,17 +1,23 @@
 import React, {useState, useEffect} from 'react'
 import CategoryCard from './CategoryCard'
 import './css/categories.css'
+import axios from 'axios'
 
 function Categories() {
 
-  const data = [ 
-    {id : "456", name : "Web Design", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
-    {id : "456", name : "Web Design", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
-    {id : "456", name : "Web Design", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
-    {id : "456", name : "Web Design", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
-    {id : "456", name : "Web Design", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
-    {id : "456", name : "Web Design", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"}
-  ]
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+      axios.get("http://localhost:4040/api/courses/category").then(
+        res => {
+          setData(res.data.categoriesList)
+        }
+      ).catch(
+        err => {
+          console.log(err)
+        }
+      )
+  }, [])
 
   if(!data) {
     return (
@@ -22,11 +28,15 @@ function Categories() {
   else {
     return (
       <div className='category-wrapper'>
-        {data.map((obj) => {
-          return <CategoryCard key={obj.id} props={obj}/>
-        })
-        }
-      </div>
+          <h1>Categories</h1>
+          <h2>Browse through a varied collection of categories</h2>
+          <div className='category-component'>
+          {data.map((obj) => {
+            return <CategoryCard key={obj.id} props={obj}/>
+          })
+          }
+        </div>
+      </div>   
     )
   }
   

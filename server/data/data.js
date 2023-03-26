@@ -55,7 +55,7 @@ const courses = [
         "https://www.codewithharry.com/blogpost/html-cheatsheet/"],
         time : "2 hours 26 minutes",
         isPopular : true,
-        category : {id : "333", name : "Web development", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
+        category : {id : "333", name : "Web development", src: "https://i.ibb.co/rx1Zdv5/pexels-tranmautritam-326503.jpg"},
         videoURL : "https://www.youtube.com/embed/Ke90Tje7VS0",
         imgURL : "https://i.ibb.co/RP5dS6j/course2.jpg",
         instructor : {
@@ -121,7 +121,7 @@ const courses = [
         "https://www.codewithharry.com/blogpost/html-cheatsheet/"],
         time : "32 hours",
         isPopular : true,
-        category : {id : "211", name : "Blockchain and Web3", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
+        category : {id : "211", name : "Blockchain and Web3", src: "https://i.ibb.co/Q8t1shP/pexels-david-mcbee-730552.jpg"},
         videoURL : "https://www.youtube.com/embed/gyMwXuJrbJQ",
         imgURL : "https://i.ibb.co/4Svv669/course4.jpg",
         instructor : {
@@ -154,7 +154,7 @@ const courses = [
         "https://www.codewithharry.com/blogpost/html-cheatsheet/"],
         time : "32 hours",
         isPopular : true,
-        category : {id : "909", name :"CyberSecurity", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
+        category : {id : "909", name :"CyberSecurity", src: "https://i.ibb.co/T0ZP4np/pexels-dan-nelson-3949100.jpg"},
         videoURL : "https://www.youtube.com/embed/3Kq1MIfTWCE",
         imgURL : "https://i.ibb.co/grgdsG6/course5.jpg",
         instructor : {
@@ -185,7 +185,7 @@ const courses = [
         "https://www.codewithharry.com/blogpost/html-cheatsheet/"],
         time : "11 hours 45 minutes",
         isPopular : false,
-        category :  {id : "909", name :"CyberSecurity", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
+        category :  {id : "909", name :"CyberSecurity", src: "https://i.ibb.co/T0ZP4np/pexels-dan-nelson-3949100.jpg"},
         videoURL : "https://www.youtube.com/embed/hXSFdwIOfnE",
         imgURL : "https://i.ibb.co/gg5hd1G/course6.jpg",
         instructor : {
@@ -216,7 +216,7 @@ const courses = [
         "https://www.codewithharry.com/blogpost/html-cheatsheet/"],
         time : "6 hours",
         isPopular : true,
-        category : {id : "676", name : "Data Science", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
+        category : {id : "676", name : "Data Science", src: "https://i.ibb.co/qx6ySFq/pexels-lukas-590022.jpg"},
         videoURL : "https://www.youtube.com/embed/ua-CiDNNj30",
         imgURL : "https://i.ibb.co/qxVh9XC/course7.jpg",
         instructor : {
@@ -249,7 +249,7 @@ const courses = [
         "https://www.codewithharry.com/blogpost/html-cheatsheet/"],
         time : "4 hours",
         isPopular : false,
-        category : {id : "676", name : "Data Science", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
+        category : {id : "676", name : "Data Science", src: "https://i.ibb.co/qx6ySFq/pexels-lukas-590022.jpg"},
         videoURL : "https://www.youtube.com/embed/3u7MQz1EyPY",
         imgURL : "https://i.ibb.co/2ktwx9D/course8.jpg",
         instructor : {
@@ -282,7 +282,7 @@ const courses = [
         "https://www.codewithharry.com/blogpost/html-cheatsheet/"],
         time : "4 hours",
         isPopular : true,
-        category : {id : "818", name : "Artificial Intelligence", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
+        category : {id : "818", name : "Artificial Intelligence", src: "https://i.ibb.co/Y2bCFhj/pexels-kindel-media-9028872.jpg"},
         videoURL : "https://www.youtube.com/embed/d2kxUVwWWwU",
         imgURL : "https://i.ibb.co/S7tfLBt/course9.jpg",
         instructor : {
@@ -315,7 +315,7 @@ const courses = [
         "https://www.codewithharry.com/blogpost/html-cheatsheet/"],
         time : "4 hours",
         isPopular : false,
-        category : {id : "818", name : "Artificial Intelligence", src: "https://i.ibb.co/v4zk471/pexels-format-1029757.jpg"},
+        category : {id : "818", name : "Artificial Intelligence", src: "https://i.ibb.co/Y2bCFhj/pexels-kindel-media-9028872.jpg"},
         videoURL : "https://www.youtube.com/embed/i_LwzRVP7bg",
         imgURL : "https://i.ibb.co/9tkY20V/course10.jpg",
         instructor : {

@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios"
 import './css/register.css'
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
@@ -58,11 +59,28 @@ function Register() {
         setAbout(about);
     }
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert("Sucessfully Registered!!")
-      navigate("/login")  
+    function handleSubmit(data) {
+        data.preventDefault();
+        axios.post("http://localhost:4040/api/register", {
+            name,
+            email,
+            password,
+            bio,
+            links,
+            about
+        }).then(
+            res => {
+                alert("Successfully Registered!!")
+                navigate("/login")
+            }
+        ).catch(
+            err => {
+                console.log(err)
+            }
+        )  
     }
+
+    
 
   return (
     <div className='register-page bg'>

@@ -17,7 +17,7 @@ function CourseCard(props) {
         <p className='course-description'>{props.description}</p>
         <p className='course-duration'> <MdTimelapse /> {props.time}</p>
         <button type='button' className='view-course-btn'>
-          <Link className='btn-link' to={"/"}>VIEW COURSE</Link>
+          <Link className='btn-link' to={`/courses/${id}`}>VIEW COURSE</Link>
         </button>
       </div>
     </div>

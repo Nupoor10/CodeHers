@@ -11,6 +11,7 @@ const enrollCourse = (req,res) => {
     .then(
         (docs) => {
             const courses = docs.courses 
+            
             res.status(200).send({
                 message : "Course Added Successfully",
                 courses  
