@@ -1,26 +1,29 @@
 import React from 'react'
 import './css/footer.css'
 import { FaCode } from "react-icons/fa";
+import { AiFillFacebook, AiOutlineGithub } from "react-icons/ai";
+import { BsTwitter, BsYoutube } from "react-icons/bs";
+import { FiInstagram } from "react-icons/fi";
 
 function Footer() {
   return (
     <footer className="footer-distributed">
 			<div className="footer-left">
-                <h1>C<span><FaCode className='logo'/></span>DE CAMPUS</h1>
+                <h1>C<span><FaCode className='logo'/></span>DEHERS</h1>
 				<p className="footer-links">
 					<a href="#" className="link-1">Home</a>				
-					<a href="#">Blog</a>
+					<a href="#">Services</a>
 				
-					<a href="#">Pricing</a>
+					<a href="#">Courses</a>
 				
-					<a href="#">About</a>
+					<a href="#">Events</a>
 					
-					<a href="#">Faq</a>
+					<a href="#">Opportunities</a>
 					
-					<a href="#">Contact</a>
+					<a href="#">Categories</a>
 				</p>
 
-				<p className="footer-company-name">Company Name © 2015</p>
+				<p className="footer-company-name">CODEHERS © 2015</p>
 			</div>
 
 			<div className="footer-center">
@@ -37,7 +40,7 @@ function Footer() {
 
 				<div>
 					<i className="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">support@company.com</a></p>
+					<p><a href="mailto:support@company.com">support@codehers.com</a></p>
 				</div>
 
 			</div>
@@ -46,16 +49,16 @@ function Footer() {
 
 				<p className="footer-company-about">
 					<span>About the company</span>
-					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+					We are on a mission to help women and girls establish a successful career in tech. 
 				</p>
 
 				<div className="footer-icons">
 
-					<a href="#"><i className="fa fa-facebook"></i></a>
-					<a href="#"><i className="fa fa-twitter"></i></a>
-					<a href="#"><i className="fa fa-linkedin"></i></a>
-					<a href="#"><i className="fa fa-github"></i></a>
-
+					<a href="#"><AiFillFacebook /></a>
+					<a href="#"><BsTwitter /></a>
+					<a href="#"><FiInstagram /></a>
+					<a href="#"><AiOutlineGithub /></a>
+					<a href="#"><BsYoutube /></a>
 				</div>
 
 			</div>
