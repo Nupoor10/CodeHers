@@ -53,12 +53,11 @@ function Footer() {
 				</p>
 
 				<div className="footer-icons">
-
-					<a href="#"><AiFillFacebook /></a>
-					<a href="#"><BsTwitter /></a>
-					<a href="#"><FiInstagram /></a>
-					<a href="#"><AiOutlineGithub /></a>
-					<a href="#"><BsYoutube /></a>
+					<a href="https://www.facebook.com/"><AiFillFacebook /></a>
+					<a href="https://twitter.com/"><BsTwitter /></a>
+					<a href="https://www.instagram.com/"><FiInstagram /></a>
+					<a href="https://github.com/"><AiOutlineGithub /></a>
+					<a href="https://www.youtube.com/"><BsYoutube /></a>
 				</div>
 
 			</div>

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import './css/events.css'
 import { MdDescription, MdAccessTimeFilled, MdPlace } from "react-icons/md";
 import { BiLinkAlt } from "react-icons/bi";
@@ -30,35 +31,45 @@ const EventsCard = (props) => {
 }
 
 function Events() {
-  return (
-    <div className='events-wrapper'>
-        <h1>Events</h1>
-        <img className='events-header-img' src='./images/events.jpg'></img>
-        <h2>We bring to you a wide variety of virtual events, talks and seminars from the most prominent people in the industry</h2>
-        <div className='events-component'>
-            <EventsCard src="https://i.ibb.co/NW4qCCw/pexels-pavel-danilyuk-8761541.jpg" date="3" month="April" 
-            title ="Women in Tech MENA Awards 2023" description="The Women in Tech® MENA Forum and Awards will be held at the Sharjah Research Technology and Innovation Park."
-                timing="10 h 00 min - 17 h 00 min" venue = "Online" link="https://www.eventbrite.com/e/mumbai-startup-mixer-networking-pitch-event-tickets-593765607917?aff=ebdssbcitybrowse"
-            />
-            <EventsCard src="https://i.ibb.co/NW4qCCw/pexels-pavel-danilyuk-8761541.jpg" date="3" month="April" 
-            title ="Women in Tech MENA Awards 2023" description="The Women in Tech® MENA Forum and Awards will be held at the Sharjah Research Technology and Innovation Park."
-                timing="10 h 00 min - 17 h 00 min" venue = "Online" link="https://www.eventbrite.com/e/connect-masters-event-mumbai-tickets-524417806777?aff=ebdssbcitybrowse&keep_tld=1"
-            />
-            <EventsCard src="https://i.ibb.co/NW4qCCw/pexels-pavel-danilyuk-8761541.jpg" date="3" month="April" 
-            title ="Women in Tech MENA Awards 2023" description="The Women in Tech® MENA Forum and Awards will be held at the Sharjah Research Technology and Innovation Park."
-                timing="10 h 00 min - 17 h 00 min" venue = "Online" link="https://www.eventbrite.com/e/100-successful-women-in-business-convention-awards-2023-mumbai-india-tickets-483980748447?aff=ebdssbcitybrowse"
-            />
-            <EventsCard src="https://i.ibb.co/NW4qCCw/pexels-pavel-danilyuk-8761541.jpg" date="3" month="April" 
-            title ="Women in Tech MENA Awards 2023" description="The Women in Tech® MENA Forum and Awards will be held at the Sharjah Research Technology and Innovation Park."
-                timing="10 h 00 min - 17 h 00 min" venue = "Online" link="https://www.eventbrite.com/e/career-fair-exclusive-tech-hiring-event-new-tickets-available-tickets-63049080497?aff=ebdssbcitybrowse"
-            />
-            <EventsCard src="https://i.ibb.co/NW4qCCw/pexels-pavel-danilyuk-8761541.jpg" date="3" month="April" 
-            title ="Women in Tech MENA Awards 2023" description="The Women in Tech® MENA Forum and Awards will be held at the Sharjah Research Technology and Innovation Park."
-                timing="10 h 00 min - 17 h 00 min" venue = "Online" link="https://www.eventbrite.com/e/black-women-in-cybersecurity-initiative-tickets-432907446827?aff=ebdssbonlinesearch"
-            />   
-        </div>
-    </div>
-  )
+
+    const [events, setEvents] = useState([])
+
+    useEffect(()=> {
+        axios.get("http://localhost:4040/api/events/").then(
+            res => {
+                const events = res.data.events
+                console.log(events)
+                setEvents(events)
+            }
+        ).catch(
+            err => {
+                console.log(err)
+            }
+        )
+    }, [])
+
+    if(!events) {
+        return (
+            <div>Loading...</div>
+        )
+    }
+
+    else {
+        return (
+            <div className='events-wrapper'>
+                <h1>Events</h1>
+                <img className='events-header-img' src='./images/events.jpg'></img>
+                <h2>We bring to you a wide variety of virtual events, talks and seminars from the most prominent people in the industry</h2>
+                <div className='events-component'>
+                    {events.map((event) => {
+                        return <EventsCard src={event.imgsrc} date={event.date} month={event.month} title={event.title}
+                            description={event.description} timing={event.timing} venue={event.venue} link={event.link}
+                        />
+                    })}  
+                </div>
+            </div>
+          )
+    }
 }
 
 export default Events

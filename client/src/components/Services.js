@@ -25,6 +25,10 @@ function Services() {
           <img className='services-img' src='./images/opportunity.png'></img>
           <h2>Opportunites</h2>
         </div>  
+        <div className='services-card' onClick={() => {navigate("/resources")}}>
+          <img className='services-img' src='./images/books.png'></img>
+          <h2>Resources</h2>
+        </div>  
         </div>
     </div>
   )

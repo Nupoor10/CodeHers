@@ -19,6 +19,7 @@ import MyCourses from './pages/MyCourses'
 import MyCoursePage from './pages/MyCoursePage'
 import Opportunities from "./pages/Opportunities";
 import Events from './pages/Events'
+import Resources from "./pages/Resources";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
               <Route path="/category/:id" element = {<SingleCategory/>}></Route>   
               <Route path="/opportunity" element = {<Opportunities/>}></Route>   
               <Route path="/events" element = {<Events/>}></Route>   
+              <Route path="/resources" element = {<Resources/>}></Route>   
               <Route path="/mycourses" element = {<MyCourses/>}></Route>
               <Route path="/mycourses/:id" element = {<MyCoursePage/>}></Route>        
           </Routes>

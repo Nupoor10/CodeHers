@@ -6,6 +6,9 @@ const connectDB = require('./config/connectDB')
 const userRoutes = require('./routes/userRoutes')
 const coursesRoutes = require('./routes/coursesRoutes')
 const myCoursesRoutes = require('./routes/myCoursesRoutes')
+const eventsRoutes = require('./routes/eventsRoutes')
+const jobRoutes = require('./routes/jobsRoutes')
+const resourcesRoutes = require('./routes/resourcesRoutes')
 
 const PORT = process.env.PORT || 4040
 
@@ -36,6 +39,9 @@ app.get("/", (req,res) => {
 app.use("/api",userRoutes);
 app.use("/api/courses/", coursesRoutes);
 app.use("/api/mycourses/", myCoursesRoutes);
+app.use("/api/events/", eventsRoutes);
+app.use("/api/jobs/", jobRoutes);
+app.use("/api/resources/", resourcesRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on PORT ${PORT}`)
