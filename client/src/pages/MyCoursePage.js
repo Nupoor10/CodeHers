@@ -10,28 +10,29 @@ function MyCoursePage() {
     let { id } = useParams()
     const [course, setCourse] = useState(null)
     const { user } = useContext(UserContext);
-    const email = user.email
+    const email = user ? user.email : null
 
     useEffect(() => {
-        axios.get(`http://localhost:4040/api/mycourses/${email}/${id}`).then(
-          res => {
-            // console.log(res.data);
-            setCourse(res.data.course)
-          }
-        ).catch(
-          err => {
-            console.log(err)
-          }
-          )
+      async function fetchMyCourses() {
+        try {
+          const response = await axios.get(`http://localhost:4040/api/mycourses/${email}/${id}`)
+          const mycourse = await response.data.course
+          setCourse(mycourse)
+        }
+        catch(error) {
+          console.log(error)
+        }
+      }
+      
+      fetchMyCourses()
       }, [id, email])
       
-      if(!course || !user) {
+      if(!course || !user || !id) {
         return(
           <div>Loading.....</div>
         )
       }
 
-      else if (course) {
         return ( 
           <div>
             <div className='my-course-heading'>
@@ -64,11 +65,5 @@ function MyCoursePage() {
           </div>
         )
       }
-      else {
-        return (
-          <div>Loading Content....</div>
-        )
-      }
-}
 
 export default MyCoursePage

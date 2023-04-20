@@ -59,25 +59,23 @@ function Register() {
         setAbout(about);
     }
 
-    function handleSubmit(data) {
-        data.preventDefault();
-        axios.post("http://localhost:4040/api/register", {
-            name,
-            email,
-            password,
-            bio,
-            links,
-            about
-        }).then(
-            res => {
-                alert("Successfully Registered!!")
-                navigate("/login")
-            }
-        ).catch(
-            err => {
-                console.log(err)
-            }
-        )  
+    async function handleSubmit(e) {
+        try {
+            e.preventDefault();
+            const response = await axios.post("http://localhost:4040/api/register", {
+                name,
+                email,
+                password,
+                bio,
+                links,
+                about
+            })
+            alert("Successfully Registered!!")
+            navigate("/login")
+        }
+        catch(error) {
+            console.log(error)
+        } 
     }
 
     
@@ -117,7 +115,6 @@ function Register() {
                 <label>Enter some brief information about yourself : </label>
                 <br />
                 <textarea  rows="10" cols="50" className='big' name='about' id='about' placeholder='Enter some brief information about yourself' onChange={handleAbout} value={about}></textarea>
-               
             </div>
             <button type='button' className='register-btn' onClick={handleSubmit}>REGISTER</button>
             <h1 className='login-link'>Already a user? <Link className="link" to="/login">LOGIN HERE</Link></h1>

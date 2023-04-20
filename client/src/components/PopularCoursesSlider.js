@@ -5,21 +5,24 @@ import axios from 'axios'
 
 function PopularCoursesSlider() {
     
-    const [data, setData] = useState([])
+    const [popularCourses, setPopularCourses] = useState([])
 
     useEffect(()=> {
-        axios.get("http://localhost:4040/api/courses/popular").then(
-            res => {
-                setData(res.data.popularCourses)
+        async function fetchPopularCourses() {
+            try {
+                const response = await axios.get("http://localhost:4040/api/courses/popular")
+                const popularCourses = await response.data.popularCourses
+                setPopularCourses(popularCourses)
             }
-        ).catch(
-            err => {
-                console.log(err)
+            catch(error) {
+                console.log(error)
             }
-        )
+        }
+        
+        fetchPopularCourses()
     }, [])
 
-    if(!data) {
+    if(!popularCourses) {
         return (
             <div>Loading....</div>
         )
@@ -29,7 +32,7 @@ function PopularCoursesSlider() {
         return (
             <div className='popular-courses-component'>
                 <h1 className='popular-course-text'>Explore top courses</h1>
-                <CardCarousel data={data} />
+                <CardCarousel data={popularCourses} />
             </div>
           )
     } 

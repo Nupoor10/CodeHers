@@ -4,10 +4,12 @@ import './css/resources.css'
 import { ImBooks } from "react-icons/im";
 
 const ResourcesCard = (props) => {
+
+    const { title, category, url } = props
     return(
         <div className='resources-card'>
-            <h2><ImBooks />  {props.title} </h2>
-            <h3>{props.category}  |  Link to view : <a href={props.url}>View</a></h3>
+            <h2><ImBooks />  {title} </h2>
+            <h3>{category}  |  Link to view : <a href={url}>View</a></h3>
         </div>
     )
 }
@@ -17,17 +19,18 @@ function Resources() {
     const [resources, setResources] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:4040/api/resources/").then(
-            res => {
-                const resources = res.data.resources
-                console.log(resources)
+        async function fetchResources() {
+            try {
+                const response = await axios.get("http://localhost:4040/api/resources/")
+                const resources = await response.data.resources
                 setResources(resources)
             }
-        ).catch(
-            err => {
-                console.log(err)
+            catch(error) {
+                console.log(error)
             }
-        )
+        }
+        
+        fetchResources()
     }, [])
 
     if(!resources) {

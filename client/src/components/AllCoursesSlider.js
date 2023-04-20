@@ -7,21 +7,24 @@ import { Link} from 'react-router-dom';
 
 function AllCoursesSlider() {
 
-    const [data, setData ] = useState([])
+    const [allCourses, setAllCourses ] = useState([])
 
     useEffect(()=> {
-        axios.get("http://localhost:4040/api/courses/").then(
-            res => {
-                setData(res.data.courses)
+        async function fetchCourses() {
+            try {
+                const response = await axios.get("http://localhost:4040/api/courses/")
+                const courses = await response.data.courses
+                setAllCourses(courses)
             }
-        ).catch(
-            err => {
-                console.log(err)
+            catch(error) {
+                console.log(error)
             }
-        )
+        }
+
+        fetchCourses()
     }, [])
 
-    if(!data) {
+    if(!allCourses) {
         return(
             <div>Loading.....</div>
         )
@@ -37,7 +40,7 @@ function AllCoursesSlider() {
                     <h3>Choose from 100+ online video courses with new additions published every month</h3>
                 </div>
                 <div>
-                    <CardCarousel data={data} />
+                    <CardCarousel data={allCourses} />
                 </div>
             </div>
           )

@@ -6,24 +6,27 @@ import { BiLinkAlt } from "react-icons/bi";
 import { BsFillCalendar2EventFill } from "react-icons/bs";
 
 const EventsCard = (props) => {
+
+    const { src, date, month, title, description, timing, venue, link } = props
+
     return(
         <div className='events-card'>
-            <img src={props.src} alt="event-image"></img>
+            <img src={src} alt="event-image"></img>
             <div className='events-card-details'>
                 <div className='events-date'>
-                    <p><BsFillCalendar2EventFill />{props.date}</p>
-                    <p>{props.month}</p>
+                    <p><BsFillCalendar2EventFill />{date}</p>
+                    <p>{month}</p>
                 </div>
                 <div className='events-details'>
-                    <h1>{props.title}</h1>
+                    <h1>{title}</h1>
                     
                 </div>
             </div>
             <div>
-                <h3><MdDescription />{props.description}</h3>
-                <h4><MdAccessTimeFilled />{props.timing}</h4>
-                <h4><MdPlace />{props.venue}</h4>
-                <h4><BiLinkAlt />Register on Evenbrite: <a href={props.link} target="_blank" rel="noreferrer">Reserve A Spot</a></h4>
+                <h3><MdDescription />{description}</h3>
+                <h4><MdAccessTimeFilled />{timing}</h4>
+                <h4><MdPlace />{venue}</h4>
+                <h4><BiLinkAlt />Register on Evenbrite: <a href={link} target="_blank" rel="noreferrer">Reserve A Spot</a></h4>
                 <p>More information regarding the event can be found on the link above👆</p>
             </div>
         </div>
@@ -35,17 +38,18 @@ function Events() {
     const [events, setEvents] = useState([])
 
     useEffect(()=> {
-        axios.get("http://localhost:4040/api/events/").then(
-            res => {
-                const events = res.data.events
-                console.log(events)
+        async function fetchEvents() {
+            try {
+                const response = await axios.get("http://localhost:4040/api/events/")
+                const events = await response.data.events
                 setEvents(events)
             }
-        ).catch(
-            err => {
-                console.log(err)
+            catch(error) {
+                console.log(error)
             }
-        )
+        }
+        
+        fetchEvents()
     }, [])
 
     if(!events) {

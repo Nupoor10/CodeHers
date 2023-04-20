@@ -12,8 +12,7 @@ function Login() {
     const navigate = useNavigate();
     const { setUser } = useContext(UserContext)
     const { setEnrolledCourses} = useContext(EnrolledCoursesContext)
-    // We are destructuring our dispatch function and user object from our custom hook that stores our context
-
+    
     function handleEmail(e) {
         setEmail(e.target.value)
     }
@@ -22,29 +21,26 @@ function Login() {
         setPassword(e.target.value)
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        axios.post("http://localhost:4040/api/login", {
-            email,
-            password
-        }).then(
-            res => {
-                const data = res.data.userInfo
-                const courses = res.data.enrolledCourseList
-                localStorage.setItem('userInfo', JSON.stringify(data))
-                localStorage.setItem('userCourses', JSON.stringify(courses))
-                setUser(data)
-                setEnrolledCourses(courses)
-                //Here is use the dispatch function, specifying an action as well as the payload which is user data
-                // this dispatch function provides the action to our reducer function which will them make the necessary changes
-                alert("Login Successfull!")
-                navigate("/")
-            }
-        ).catch(
-            err => {
-                console.log(err)
-            }
-        )
+    async function handleSubmit(e) {
+        try {   
+            e.preventDefault()
+            const response = await axios.post("http://localhost:4040/api/login", {
+                email,
+                password
+            })
+            const data = response.data.user
+            const courses = response.data.enrolledCourses
+            console.log(data, courses)
+            localStorage.setItem('userInfo', JSON.stringify(data))
+            localStorage.setItem('userCourses', JSON.stringify(courses))
+            setUser(data)
+            setEnrolledCourses(courses)
+            alert("Login Successfull!")
+            navigate("/")
+        }
+        catch(error) {
+            console.log(error)
+        }
     }
 
   return (

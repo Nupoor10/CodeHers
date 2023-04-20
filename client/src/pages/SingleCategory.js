@@ -12,8 +12,8 @@ function SingleCategory() {
     async function getCategory() {
       try {
         const response = await axios.get(`http://localhost:4040/api/courses/category/${id}`)
-        const data = await response.data
-        setData(data.singleCategory)
+        const category = await response.data.singleCategory
+        setData(category)
       }
       catch(error) {
         console.log(error)
@@ -23,7 +23,7 @@ function SingleCategory() {
     getCategory()
 }, [id])
 
-  if(!data){
+  if(!data || !id){
     return <div>Loading...</div>
   }
   else {

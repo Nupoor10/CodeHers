@@ -4,37 +4,23 @@ import axios from "axios"
 import Select from 'react-select'
 import CourseCard from '../components/CourseCard'
 
-const categoryOptions = [
-  { value: 'webdev', label: 'Web Development' },
-  { value: 'blockchain', label: 'Blockchain and Web3' },
-  { value: 'cybersecurity', label: 'Cyber Security' },
-  { value: 'datascience', label: 'Data Science' },
-  { value: 'ai', label: 'Artificial Intelligence' }
-]
-
-
-const timeOptions = [
-  { value: '1-2hr', label: '1-2 hours' },
-  { value: '2-6hr', label: '2-6 hours' },
-  { value: '6+hr', label: 'More than 6 hours' }
-]
-
-
 function Course() {
 
   const [courseData, setCourseData] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:4040/api/courses").then(
-      res => {
-        // console.log(res.data);
-        setCourseData(res.data.courses);
+    async function fetchCourseData() {
+      try {
+        const response = await  axios.get("http://localhost:4040/api/courses")
+        const courses = await response.data.courses
+        setCourseData(courses)
       }
-    ).catch(
-      err => {
-        console.log(err)
+      catch(error) {
+        console.log(error)
       }
-    )
+    }
+    
+    fetchCourseData()
   },[])
 
   return (
@@ -46,11 +32,6 @@ function Course() {
               <div className='search-bar'>
                 <input type="text" name='search' id='search' placeholder='Search Courses' style={{width:"70%"}}></input>
                 <button type='button' className='search-btn'>SEARCH</button>
-              </div>
-                <h3>Filter your results</h3>
-              <div className='search-filter'>
-                <Select options={categoryOptions} className="filter"/>
-                <Select options={timeOptions} className="filter"/>
               </div>
             </div>
             <div className='courses-components'>

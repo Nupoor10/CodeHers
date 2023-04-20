@@ -30,13 +30,16 @@ function Navbar() {
                 <Link to="/" className='nav-link'>Home</Link>
             </div>
             <div>
-                <Link to="/category" className='nav-link'>Categories</Link>
+                <Link to="/events" className='nav-link'>Events</Link>
             </div>
             <div>
-                <Link to="/impact" className='nav-link'>What we do</Link>
+                <Link to="/opportunity" className='nav-link'>Opportunities</Link>
             </div>
             <div>
-                <Link to="/courses" className='nav-link'>Browse Courses</Link>
+                <Link to="/resources" className='nav-link'>Resources</Link>
+            </div>
+            <div>
+                <Link to="/courses" className='nav-link'>Courses</Link>
             </div>
             { user && (
                 <div>
@@ -45,9 +48,7 @@ function Navbar() {
            { user && (
                 <div>
                     <Link onClick={handleLogout} className='nav-link'>LOGOUT</Link>
-                    {/* <button type='button' className="logout-btn" onClick={handleLogout}>LOGOUT</button>     */}
                 </div>)}
-
             {!user && (
                 <div>
                     <Link to="/login" className='nav-link'>GET STARTED</Link>

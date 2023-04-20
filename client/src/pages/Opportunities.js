@@ -6,12 +6,14 @@ import { RiTimerFlashFill } from "react-icons/ri";
 import { BiLinkAlt } from "react-icons/bi";
 
 const OpportunityCard = (props) => {
+
+    const { title, description, deadline, link } = props
     return(
         <div className='opportunity-card'>
-            <h2>{props.title}</h2>
-            <h3><MdDescription />{props.description}</h3>
-            <h4><RiTimerFlashFill />{props.deadline}</h4>
-            <h4><BiLinkAlt />Link to apply : <a href={props.link}>APPLY HERE</a></h4>
+            <h2>{title}</h2>
+            <h3><MdDescription />{description}</h3>
+            <h4><RiTimerFlashFill />{deadline}</h4>
+            <h4><BiLinkAlt />Link to apply : <a href={link}>APPLY HERE</a></h4>
         </div>
     )
 }
@@ -21,17 +23,18 @@ function Opportunities() {
     const [jobs, setJobs] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:4040/api/jobs/").then(
-            res => {
-                const opportunities = res.data.jobs
-                console.log(opportunities)
+        async function fetchJobs() {
+            try {
+                const response =  await axios.get("http://localhost:4040/api/jobs/")
+                const opportunities = await response.data.jobs
                 setJobs(opportunities)
             }
-        ).catch(
-            err => {
-                console.log(err)
+            catch(error) {
+                console.log(error)
             }
-        )
+        }
+        
+        fetchJobs()
     }, [])
 
     if(!jobs) {

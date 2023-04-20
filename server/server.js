@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 4040
 const app = express();
 app.use(express.json());
 app.use(cors())
+dotenv.config()
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -29,7 +30,6 @@ app.use((req, res, next) => {
     next();
   });
 
-dotenv.config()
 connectDB()
 
 app.get("/", (req,res) => {
